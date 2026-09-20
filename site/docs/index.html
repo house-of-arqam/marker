@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Marker — Highlight the web. Built with PaidExtension.</title>
+  <meta name="description" content="Highlight text on any page; it comes back when you return. Export to Markdown and share read-only pages with Pro. An open-source demo of the PaidExtension kit.">
+  <meta property="og:title" content="Marker">
+  <meta property="og:description" content="Highlight the web. Open-source demo of a paid extension built with PaidExtension.">
+  <meta property="og:image" content="https://demo.paidextension.dev/icon.png">
+  <meta property="og:url" content="https://demo.paidextension.dev/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://demo.paidextension.dev/">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/home.css">
+  <script src="assets/theme.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="/"><img src="icon.png" alt="" width="32" height="32">Marker</a>
+      <nav aria-label="Primary">
+        <a href="#install">Install</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#built">How it's built</a>
+        <a href="support.html">Support</a>
+        <button id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Highlight the web.<br>Keep what matters.</h1>
+        <p>Select text on any page and mark it. Highlights come back every time you return, export to Markdown, and can be shared as a read-only page.</p>
+        <a class="cta" href="#install">Get Marker — it's free</a>
+        <a class="cta secondary" href="#built">How this was built</a>
+        <p class="note">Free: 10 highlights. Pro: unlimited, colours, export and sharing — 7-day free trial, no card required.</p>
+      </section>
+
+      <section id="features" class="features" aria-label="Features">
+        <div class="card">
+          <h3>Highlights that stick</h3>
+          <p>Select, click, done. Marker anchors each highlight to the text itself, so it survives reloads and page updates. Everything is stored in your browser.</p>
+        </div>
+        <div class="card">
+          <h3>Colours &amp; Markdown <small>(Pro)</small></h3>
+          <p>Four colours to sort what you save, and one-click export of a page's highlights as Markdown for your notes.</p>
+        </div>
+        <div class="card">
+          <h3>Share a page <small>(Pro)</small></h3>
+          <p>Publish the highlights from a page to a private read-only link. Nothing else about your browsing leaves the device.</p>
+        </div>
+      </section>
+
+      <section id="install" class="install">
+        <h2>Install</h2>
+        <p class="sub">Marker is a demo built to be read as much as used, so it ships as a zip rather than a store listing.</p>
+        <div class="card">
+          <ol class="steps">
+            <li>Download <a href="https://github.com/house-of-arqam/marker/releases/latest" rel="noopener">the latest release zip</a> and unzip it.</li>
+            <li>Open <code>chrome://extensions</code> (or <code>edge://extensions</code>), turn on <strong>Developer mode</strong>.</li>
+            <li>Click <strong>Load unpacked</strong> and pick the unzipped folder.</li>
+            <li>Select some text on any page and hit the marker.</li>
+          </ol>
+          <p class="hint">Firefox: <code>about:debugging</code> → This Firefox → Load Temporary Add-on → <code>manifest.json</code>.</p>
+        </div>
+      </section>
+
+      <section id="built" class="built">
+        <h2>How this was built</h2>
+        <p class="sub">Marker is the open-core demo for <a href="https://paidextension.dev" rel="noopener">PaidExtension</a>: the product code is public, the licensing underneath is the kit, unchanged.</p>
+        <div class="features">
+          <div class="card">
+            <h3>~600 lines of product</h3>
+            <p>The highlighter, popup and share client in <code>extension/src/marker</code> and <code>extension/src/content</code>. Everything else — trial, checkout, activation, seats, offline grace — comes from the kit.</p>
+          </div>
+          <div class="card">
+            <h3>Five feature names</h3>
+            <p>The free/Pro line is one JSON block: <code>free: ["highlight"]</code>, <code>pro: [..., "colors", "exportMarkdown", "share"]</code>. Every gate in the UI calls <code>hasFeature()</code>, which reads the verified entitlement, never a stored flag.</p>
+          </div>
+          <div class="card">
+            <h3>One route, checked server-side</h3>
+            <p><code>POST /share</code> is ~90 lines added to the licensing Worker. It verifies the entitlement token's signature, issuer, expiry and type before it stores anything, so a patched extension can't publish.</p>
+          </div>
+          <div class="card">
+            <h3>$0/month to run</h3>
+            <p>Cloudflare Worker + KV, GitHub Pages, Paddle as merchant of record. Paddle runs in sandbox here: buy Pro with card <code>4242 4242 4242 4242</code>, then refund it in the dashboard and watch Pro switch off.</p>
+          </div>
+        </div>
+        <p class="built-cta">
+          <a class="cta" href="https://github.com/house-of-arqam/marker" rel="noopener">Read the source</a>
+          <a class="cta secondary" href="https://paidextension.dev" rel="noopener">Build yours with PaidExtension</a>
+        </p>
+      </section>
+
+      <section id="pricing">
+        <h2>Simple pricing</h2>
+        <p class="sub">Start free. Upgrade from inside the extension whenever you're ready.</p>
+        <div class="plans">
+          <div class="card plan">
+            <h3>Monthly</h3>
+            <p class="price">$2.99</p>
+            <p class="period">per month</p>
+            <ul>
+              <li>All Pro features</li>
+              <li>Up to 3 devices</li>
+              <li>Cancel anytime</li>
+            </ul>
+          </div>
+          <div class="card plan">
+            <span class="badge">Best value</span>
+            <h3>Yearly</h3>
+            <p class="price">$19.99</p>
+            <p class="period">per year</p>
+            <ul>
+              <li>All Pro features</li>
+              <li>Up to 3 devices</li>
+              <li>Two months free</li>
+            </ul>
+          </div>
+          <div class="card plan">
+            <span class="badge">Pay once</span>
+            <h3>Lifetime</h3>
+            <p class="price">$39</p>
+            <p class="period">one-time</p>
+            <ul>
+              <li>All Pro features, forever</li>
+              <li>Up to 3 devices</li>
+              <li>All future updates</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2>Questions</h2>
+        <details>
+          <summary>Is this a real product?</summary>
+          <p>It works, and Pro really is gated by signed licenses — but payments run through Paddle's sandbox, so nothing is charged and shared pages expire after 90 days. Marker exists to show what a paid extension built with <a href="https://paidextension.dev" rel="noopener">PaidExtension</a> looks like from the inside.</p>
+        </details>
+        <details>
+          <summary>How do I upgrade?</summary>
+          <p>Open the extension, go to Settings and choose Upgrade to Pro. Payment is handled by Paddle, our merchant of record; your license key is emailed to you and the extension unlocks automatically.</p>
+        </details>
+        <details>
+          <summary>Does it work offline?</summary>
+          <p>Yes. Highlights are stored locally and your license is verified inside the extension, so everything except sharing works without a connection.</p>
+        </details>
+        <details>
+          <summary>How many devices can I use?</summary>
+          <p>Up to 3 browser profiles per license. You can release a device anytime from the extension's Settings or the <a href="devices.html">device page</a>.</p>
+        </details>
+        <details>
+          <summary>Can I get a refund?</summary>
+          <p>Yes — 14 days, no questions asked. See the <a href="terms.html#refunds">refund policy</a>.</p>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <div>&copy; House of Arqam Ventures LLC · Marker is not affiliated with any browser vendor.</div>
+      <div>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+        <a href="devices.html">Devices</a>
+        <a href="https://github.com/house-of-arqam/marker" rel="noopener">Source</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

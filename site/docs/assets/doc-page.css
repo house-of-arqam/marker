@@ -1,0 +1,25 @@
+/* Layout for the plain text pages: privacy, terms, support. */
+body {
+  color: light-dark(#1a1a1a, #F4EEE4);
+  background: light-dark(#ffffff, #16130E);
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+h2 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; }
+p { font-size: 15px; color: light-dark(#374151, #C3B9AB); margin-bottom: 16px; }
+ul { margin: 0 0 16px 24px; }
+li { font-size: 15px; color: light-dark(#374151, #C3B9AB); margin-bottom: 4px; }
+a { color: light-dark(#d97706, #F5A93C); }
+
+.updated { font-size: 13px; color: light-dark(#9ca3af, #8C8175); margin-bottom: 32px; }
+.lede { font-size: 15px; color: light-dark(#6b7280, #A69C8E); margin-bottom: 8px; }
+
+.back { display: inline-block; margin-bottom: 24px; font-size: 14px; color: light-dark(#6b7280, #A69C8E); text-decoration: none; }
+.back:hover { color: light-dark(#1a1a1a, #F4EEE4); }

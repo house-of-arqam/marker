@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Popup</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="popup page">
+    <header class="bar">
+      <h1><img src="../assets/icon-32.png" alt="" /><span data-product-name>Marker</span></h1>
+      <span id="tier-badge" class="badge">Free</span>
+    </header>
+
+    <p id="hint" class="muted small">Select text on any page, then pick a colour.</p>
+
+    <section class="card">
+      <div class="row">
+        <span>This page</span>
+        <strong id="page-count">0 highlights</strong>
+      </div>
+      <ul id="highlights" class="highlights"></ul>
+      <p id="empty" class="muted small">No highlights here yet.</p>
+    </section>
+
+    <section id="quota" class="card">
+      <div class="row">
+        <span>Free plan</span>
+        <strong id="quota-count">0 / 10</strong>
+      </div>
+      <div class="meter"><div id="quota-bar" class="meter-bar"></div></div>
+      <p class="muted small">Highlights across all pages. <span data-pro-label>Pro</span> is unlimited.</p>
+    </section>
+
+    <div class="actions">
+      <button id="export" title="Copy this page's highlights as Markdown">Export</button>
+      <button id="share" class="primary" title="Publish a read-only page">Share</button>
+    </div>
+    <div id="status" class="status"></div>
+
+    <footer class="popup-footer">
+      <button id="upgrade" class="link">Upgrade to <span data-pro-label>Pro</span></button>
+      <button id="settings" class="link">Settings</button>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

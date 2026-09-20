@@ -1,0 +1,29 @@
+/* Device-management page: a key input, then a list of registered installs. */
+.key-form { display: flex; flex-direction: column; gap: 8px; text-align: left; margin-bottom: 20px; }
+.key-form textarea {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 10px;
+  border: 1px solid var(--kraft);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  resize: vertical;
+}
+.key-form .btn { align-self: flex-start; margin-top: 0; }
+.summary { font-size: 15px; color: var(--ink); margin: 8px 0 12px; }
+.devices { list-style: none; text-align: left; border-top: 1px solid var(--kraft); }
+.devices li {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 0; border-bottom: 1px solid var(--kraft); font-size: 14px;
+}
+.devices .id { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); }
+.devices .seen { color: var(--muted); font-size: 12px; }
+.devices .btn, .btn.secondary {
+  background: transparent; color: var(--accent); border: 1px solid var(--accent);
+  padding: 6px 12px; margin-top: 0; font-size: 13px;
+}
+.devices .btn:hover, .btn.secondary:hover { background: var(--kraft); }
+.btn.secondary { margin-top: 12px; }
+.btn[disabled] { opacity: 0.5; cursor: progress; }

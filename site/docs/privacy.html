@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Privacy Policy — Marker</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/doc-page.css">
+  <script src="assets/theme.js"></script>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back">&larr; Back to Marker</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: September 19, 2026</p>
+
+    <p>Marker ("the extension") is made by House of Arqam Ventures LLC ("we"). This policy describes what the extension and this website do with data. The short version: the extension works locally in your browser, we do not run analytics or tracking, and the only data that leaves your browser is what is needed to sell and verify a license.</p>
+
+    <h2>Data the extension processes</h2>
+    <p>The extension processes the pages it runs on entirely inside your browser to provide its features. This content is never sent to us or to any third party.</p>
+    <!-- TODO: describe what your extension actually reads (which sites, which data) and where it is stored. Chrome Web Store reviewers check that this matches your manifest permissions. -->
+
+    <h2>Data stored on your device</h2>
+    <ul>
+      <li>Your settings and the extension's working data, in the browser's extension storage.</li>
+      <li>A random installation identifier, used to count your license's devices.</li>
+      <li>Your license key and a short-lived entitlement token, if you have a trial or Pro license. The license key is also saved to your browser's sync storage so it follows you to your other signed-in browsers.</li>
+    </ul>
+    <p>Uninstalling the extension removes all of this.</p>
+
+    <h2>Data sent to our licensing service</h2>
+    <p>When you start a trial, buy Pro, or activate a license, the extension contacts our licensing service (a Cloudflare Worker at <code>license.demo.paidextension.dev</code>). It sends only what is needed for that action: the random installation identifier, an anonymous visitor identifier (for trials), the plan you chose, and your license key. The service stores your license status and the list of installation identifiers using it. It never receives page content or browsing activity.</p>
+
+    <h2>Payments</h2>
+    <p>Purchases are processed by <a href="https://www.paddle.com" rel="noopener">Paddle</a>, our merchant of record. Paddle collects your payment details and billing address, handles taxes and invoices, and tells us when a purchase completes so we can issue your license key. We never see your card number. Paddle's handling of your data is described in <a href="https://www.paddle.com/legal/privacy" rel="noopener">Paddle's privacy policy</a>.</p>
+
+    <h2>Email</h2>
+    <p>After a purchase we email your license key to the address you gave Paddle, via <a href="https://resend.com" rel="noopener">Resend</a>. We keep your email address alongside your license record so we can help you recover a key. We do not send marketing email.</p>
+
+    <h2>This website</h2>
+    <p>This site is static and sets no cookies. It uses no analytics or advertising trackers.</p>
+
+    <h2>Data retention and deletion</h2>
+    <p>License records are kept while your license is active and for a reasonable period afterwards for refund and fraud handling. Email <a href="mailto:hello@paidextension.dev">hello@paidextension.dev</a> to have your license record and email address deleted.</p>
+
+    <h2>Children</h2>
+    <p>The extension is not directed at children under 13 and we do not knowingly collect their data.</p>
+
+    <h2>Changes</h2>
+    <p>We will update this page when the policy changes and adjust the date above.</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:hello@paidextension.dev">hello@paidextension.dev</a></p>
+  </div>
+</body>
+</html>

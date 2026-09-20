@@ -1,0 +1,29 @@
+/* Shared reset, font stack and brand palette for every page.
+   Colors use light-dark(), so every page follows the OS theme; theme.js
+   additionally lets the visitor flip it by setting data-theme on <html>.
+   Change the accent variables to rebrand the whole site. */
+:root {
+  color-scheme: light dark;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --paper: light-dark(#F7F7FB, #0F1117);    /* page background */
+  --ink: light-dark(#151826, #F1F2F7);      /* headings */
+  --muted: light-dark(#5B6070, #A7ADBF);    /* body text */
+  --accent: light-dark(#4F46E5, #818CF8);
+  --accent-d: light-dark(#4338CA, #A5B4FC);
+  --kraft: light-dark(#E2E4EE, #262A38);    /* card border */
+}
+
+:root[data-theme='light'] { color-scheme: light; }
+:root[data-theme='dark'] { color-scheme: dark; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: var(--font-sans); }
+
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

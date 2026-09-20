@@ -1,0 +1,62 @@
+{
+  "$schema": "./scripts/config.schema.json",
+  "product": {
+    "name": "Marker",
+    "slug": "marker",
+    "shortName": "Marker",
+    "description": "Highlight any web page. Highlights persist, export to Markdown and share as a page.",
+    "proLabel": "Pro",
+    "version": "0.1.0"
+  },
+  "company": {
+    "name": "House of Arqam Ventures LLC",
+    "supportEmail": "hello@paidextension.dev",
+    "licenseFromEmail": "Marker <license@demo.paidextension.dev>"
+  },
+  "urls": {
+    "site": "https://demo.paidextension.dev",
+    "licenseApi": "https://license.demo.paidextension.dev",
+    "githubPagesOrigin": "https://house-of-arqam.github.io"
+  },
+  "licensing": {
+    "issuer": "marker",
+    "maxSeats": 3,
+    "trialDays": 7,
+    "offlineGraceDays": 3,
+    "entitlementTtlDays": 3
+  },
+  "plans": {
+    "monthly": {
+      "enabled": true,
+      "label": "Monthly",
+      "price": "$2.99",
+      "period": "/month"
+    },
+    "yearly": {
+      "enabled": true,
+      "label": "Yearly",
+      "price": "$19.99",
+      "period": "/year",
+      "badge": "Best value"
+    },
+    "lifetime": {
+      "enabled": true,
+      "label": "Lifetime",
+      "price": "$39",
+      "period": "one-time",
+      "badge": "Pay once"
+    }
+  },
+  "features": {
+    "free": [
+      "highlight"
+    ],
+    "pro": [
+      "highlight",
+      "unlimitedHighlights",
+      "colors",
+      "exportMarkdown",
+      "share"
+    ]
+  }
+}

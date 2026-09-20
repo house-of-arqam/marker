@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; connect-src https://license.demo.paidextension.dev; img-src 'self' data:; style-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Manage devices - Marker</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/checkout.css">
+  <link rel="stylesheet" href="assets/key.css">
+  <link rel="stylesheet" href="assets/devices.css">
+  <script src="assets/theme.js"></script>
+  <script src="assets/site-config.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Marker</h1>
+    <p class="subtitle">Manage your devices</p>
+
+    <form id="key-form" class="key-form">
+      <label for="key-input" class="hint">Paste your license key to see which devices are using it.</label>
+      <textarea id="key-input" rows="4" spellcheck="false" autocomplete="off" placeholder="eyJhbGciOiJFUzI1NiIs..."></textarea>
+      <button class="btn" type="submit">Show devices</button>
+    </form>
+
+    <div id="devices-view" role="status" aria-live="polite"></div>
+
+    <p class="hint">Lost your key? It is in your purchase email and in the extension's Settings, or <a href="support.html">contact support</a>.</p>
+  </div>
+
+  <script src="devices.js"></script>
+</body>
+</html>
