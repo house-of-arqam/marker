@@ -1,0 +1,32 @@
+name: Release
+
+# Publishes the built extension zip under releases/ as a GitHub Release when a
+# `v<version>` tag is pushed. The zip is produced by the private kit build (it
+# bundles the licensing internals), so this repo only ships it.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Locate the zip for this tag
+        id: zip
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          zip="releases/marker-${version}.zip"
+          test -f "$zip" || { echo "missing $zip" >&2; exit 1; }
+          echo "path=$zip" >> "$GITHUB_OUTPUT"
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.zip.outputs.path }}
+          body: |
+            Marker ${{ github.ref_name }} — load unpacked in Chrome/Edge (`chrome://extensions` → Developer mode → Load unpacked → the unzipped folder) or Firefox (`about:debugging#/runtime/this-firefox` → Load Temporary Add-on).
+
+            Payments run against Paddle Sandbox: use card 4242 4242 4242 4242 to "buy" Pro. Site: https://demo.paidextension.dev
