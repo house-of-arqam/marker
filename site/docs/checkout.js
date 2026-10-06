@@ -16,6 +16,7 @@
   var proLabel = config.proLabel || 'Pro';
   var settled = false;
   var errorShown = false;
+  var completed = false;
 
   function render(nodes) {
     settled = true;
@@ -100,6 +101,7 @@
         }
         if (event.name === 'checkout.completed') {
           clearTimeout(loadTimer);
+          completed = true;
           var done = message('status', '\u2713 Payment successful!');
           done.style.color = '#15803d';
           render([
@@ -115,7 +117,7 @@
           }
           showError('Checkout error: ' + (detail || 'An unexpected error occurred during checkout.'));
         }
-        if (event.name === 'checkout.closed' && !errorShown) {
+        if (event.name === 'checkout.closed' && !errorShown && !completed) {
           clearTimeout(loadTimer);
           render([message('status', 'Checkout closed.'), retryButton()]);
         }

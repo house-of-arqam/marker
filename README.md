@@ -19,7 +19,7 @@ the demo use Paddle's sandbox — card `4242 4242 4242 4242`, nothing is charged
    unzipped folder. Firefox: `about:debugging#/runtime/this-firefox` → *Load
    Temporary Add-on* → `manifest.json`.
 3. Select text on any page. Highlight it. Reload the page.
-4. Open the popup → *Start free trial* → try colours, export and share. Or
+4. Open the popup → *Upgrade* → *Start trial* → try colours, export and share. Or
    *Upgrade* with the sandbox card and watch Pro unlock; refund it in the Paddle
    sandbox and watch it lock again within the entitlement window.
 
@@ -47,7 +47,7 @@ if (!colors) { /* one colour */ }
 ```
 
 `hasFeature()` reads the verified entitlement — an ES256 token signed by the
-Worker, bound to this install, renewed every few days — not a boolean in
+Worker, bound to this install, renewed every 30 minutes while you're online — not a boolean in
 storage. Feature names live in the config (`features.free`, `features.pro`),
 so the gate is a string, not a code change.
 

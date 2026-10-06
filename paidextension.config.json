@@ -6,7 +6,7 @@
     "shortName": "Marker",
     "description": "Highlight any web page. Highlights persist, export to Markdown and share as a page.",
     "proLabel": "Pro",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "company": {
     "name": "House of Arqam Ventures LLC",
@@ -58,5 +58,10 @@
       "exportMarkdown",
       "share"
     ]
+  },
+  "legal": {
+    "refundDays": 14,
+    "dataProcessed": "Marker can run on any page you visit. It reads the text you select so it can highlight it, and stores your highlights (the quoted text, a little surrounding context, the page address and the colour) in the browser's extension storage. Nothing leaves your browser unless you use Share: then the highlights for that page are uploaded to our licensing service, anyone with the link can read them, and they are deleted after 90 days.",
+    "jurisdiction": "the State of Texas, USA"
   }
 }
